@@ -1,0 +1,28 @@
+This file serves as a future guide for working with the matplotlib library.
+To find how it can be downloaded, look at the README file.
+This file solely serves for showing how the library works. Not the downloading of it
+
+1.First import the needed stuff:
+--------------------------------
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+
+2.Create a figure/graph:
+--------------------------------
+This step consists of a shitload of smaller steps, so I'ma split this up
+
+2a. First initialize the data (like using lists for example)
+x = [10, 20, 30, 40]
+y = [20, 30, 40, 50]
+
+2b.Then plot the data using --> plt.plot(x,y) <-- (ignore the arrows and this comment)
+
+2c.Add additional information like a title, axis labels, and whatnot
+plt.title("Simple Plot") <-- for a title
+plt.ylabel("y-axis") <-- for a y_axis label
+plt.xlabel("x-axis") <-- for an x_axis label
+
+2d.Actually get to see the label
+plt.show()
+

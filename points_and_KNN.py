@@ -10,6 +10,8 @@ class Point:
     def __init__(self, x_axis: float, y_axis) -> None:
         self.x_axis = x_axis
         self.y_axis = y_axis
+        # The neighbours list contains only the neighbours themselves,
+        # not the distance
         self.neighbors: list = []
 
     def distance(self, other_point: object) -> float:
@@ -44,7 +46,7 @@ class Point:
         for point in self.neighbors:
             distance_neighbour_dict.update({point.distance(self): point})
 
-        #distance_list = (distance_neighbour_dict.keys.sort())
+        # distance_list = (distance_neighbour_dict.keys.sort())
         distance_list: list = []
         for key in distance_neighbour_dict.keys():
             distance_list.append(key)
@@ -61,16 +63,37 @@ class Point:
         :returns: list containing the n-amount of nearest neighbours
         """
 
-    def add_neighbour(self, neighbour):
+        self.sort_neighbours()
+        counter: int = 0
+        neighbour_list: list = []
+        for neighbour in self.neighbors:
+            counter += 1
+            neighbour_list.append(neighbour)
+            if counter == n:
+                break
+
+        return neighbour_list
+
+    def add_neighbour(self, neighbour: object):
         """
-        adds neighbour to the neighbour list
+        adds neighbour to the neighbour list and lets the neighbour add the original point
         :param neighbour: appends the neighbour in question to the neighbour list
         :returns: None
         """
+        # here we avoid adding the same neighbor multiple times
+        if neighbour in self.neighbors:
 
-        self.neighbors.append(neighbour)
-        self.sort_neighbours()
-        return None
+            return None
+
+        # This part gets initiated once we know the neighbor is new
+        else:
+            self.neighbors.append(neighbour)
+            self.sort_neighbours()
+
+            # Here we let the new neighbor add the original Point as well
+            # so the connection is initiated on both sides
+            neighbour.add_neighbour(self)
+            return None
 
     def __str__(self):
         """
@@ -91,7 +114,9 @@ class Point:
 
 
 """ 
-Here we test whether the Point class and it's methods actually work
+Here we test whether the Point class and it's methods actually work.
+Once done with testing all of the stuff below this testing stuff, 
+the stuff will be turned into a multiline comment.
 """
 test_point1 = Point(3, 3)
 print(test_point1)
@@ -100,6 +125,8 @@ test_point2 = Point(5, 9)
 print(test_point2)
 
 test_point1.add_neighbour(test_point2)
+test_point1.add_neighbour(test_point2)
 print(test_point1.neighbors)
+print(test_point2.neighbors)
 
 print(test_point1.show_neighbours())
