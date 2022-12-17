@@ -21,3 +21,9 @@ I hope I wont have to download the stuff each time I'm gonna use the library.
 But I guess we'll see
 
 Status Update 1: It does let itself get imported like my other files
+
+What also is pretty neat is that there is a lot of stuff available to mess around with.
+Here are a couple of examples:
+-https://github.com/matplotlib/matplotlib/blob/main/examples/animation/dynamic_image.py
+-https://www.geeksforgeeks.org/matplotlib-tutorial/#getting%20started
+-https://matplotlib.org/stable/tutorials/introductory/quick_start.html#sphx-glr-tutorials-introductory-quick-start-py
