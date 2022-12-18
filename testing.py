@@ -29,14 +29,19 @@ test.show()
 
 """
 line = np.arange(0,10,0.01)
+smaller_line = np.arange(0,10,1)
 
 
-plt.plot(line, line*2, "r", line, line**0.5, "b", line, line**2, "k")
+plt.plot(line, line*2, color="r", linestyle="--")# , marker="3")
+plt.plot(line, line**0.5, color="b", linestyle=":")# , marker="1")
+plt.plot(smaller_line, smaller_line**2, color="k", marker=">", linestyle=":")
+plt.plot(4, 40, marker="o")
 # , "b", line, line**2, "k"
-plt.axis([0,10, 0, 10])
+plt.axis([0,10, 0, 50])
+plt.title("little experiment")
 plt.ylabel('some numbers')
 plt.xlabel("I have no clue wtf I am doing here")
-mpl.rcParams['lines.linestyle'] = '--'
+plt.legend()
 plt.show()
 
 

@@ -40,7 +40,19 @@ It takes a list of 4 numerical values: [x-start, x-end, y-start, y-end]
 
 4. math.sqrt does not work for some reason, so use **0.5 instead
 
+5.the format strings for color, marker and line work as follows:
+fmt =" marker line color" (all as strings)
 
+However, it is much easier to read when seperating the string into multiple things:
+plt.plot(line, line**0.5, color="b", linestyle=":", marker="1")
+color =... , linestyle = ... , marker = ... linewidth = ...
++ For linestyle, the default value = 1
++keep in mind that the line marker can be hard to see if the line
+    consists of a lot of points in a cramped space
+
+6.Information can be added by
+
+6
 
 
 
