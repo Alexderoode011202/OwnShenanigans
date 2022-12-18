@@ -23,6 +23,24 @@ plt.title("Simple Plot") <-- for a title
 plt.ylabel("y-axis") <-- for a y_axis label
 plt.xlabel("x-axis") <-- for an x_axis label
 
-2d.Actually get to see the label
+3.Actually get to see the label
+--------------------------------
 plt.show()
+
+With this out of the way, here we get to the important data stuffies
+--------------------------------
+
+1.When providing lists for the plt.plot() method, make sure the lists have the same length
+
+2.The first list contains the x-coordinates
+and the second list contains the respective y-coordinates
+
+3.In order to set the axis, make use of the plt.axis([]) method.
+It takes a list of 4 numerical values: [x-start, x-end, y-start, y-end]
+
+4. math.sqrt does not work for some reason, so use **0.5 instead
+
+
+
+
 

@@ -4,11 +4,11 @@ And also mess around with foreign libraries
 """
 
 import matplotlib as mpl
-import matplotlib.pyplot as plt
+
 import numpy as np
-
+import math
 import matplotlib.pyplot as plt
-
+"""
 # initializing the data
 x = [10, 20, 30, 40]
 y = [20, 30, 40, 50]
@@ -27,10 +27,18 @@ plt.show()
 test = plt
 test.show()
 
+"""
+line = np.arange(0,10,0.01)
 
 
-fig, ax = plt.subplots()  # Create a figure containing a single axes.
-ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the axes.
+plt.plot(line, line*2, "r", line, line**0.5, "b", line, line**2, "k")
+# , "b", line, line**2, "k"
+plt.axis([0,10, 0, 10])
+plt.ylabel('some numbers')
+plt.xlabel("I have no clue wtf I am doing here")
+mpl.rcParams['lines.linestyle'] = '--'
+plt.show()
+
 
 
 """
