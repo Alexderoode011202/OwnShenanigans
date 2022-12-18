@@ -28,6 +28,8 @@ test = plt
 test.show()
 
 """
+
+"""
 line = np.arange(0,10,0.01)
 smaller_line = np.arange(0,10,1)
 
@@ -43,7 +45,7 @@ plt.ylabel('some numbers')
 plt.xlabel("I have no clue wtf I am doing here")
 plt.legend()
 plt.show()
-
+"""
 
 
 """

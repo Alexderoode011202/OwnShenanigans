@@ -99,7 +99,7 @@ class Point:
         """
         :returns: the point as a string with the x- and y-axis
         """
-        return f"({self.x_axis},{self.y_axis})"
+        return f"({self.x_axis}:{self.y_axis})"
 
     def show_neighbours(self) -> List[object]:
         """
@@ -118,6 +118,8 @@ Here we test whether the Point class and it's methods actually work.
 Once done with testing all of the stuff below this testing stuff, 
 the stuff will be turned into a multiline comment.
 """
+
+"""
 test_point1 = Point(3, 3)
 print(test_point1)
 
@@ -130,3 +132,4 @@ print(test_point1.neighbors)
 print(test_point2.neighbors)
 
 print(test_point1.show_neighbours())
+"""

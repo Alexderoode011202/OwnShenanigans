@@ -5,12 +5,13 @@ This is the heart of the project
 """
 from typing import List, Dict
 from points_and_KNN import Point
+
+
 class Graph:
     def __init__(self):
         self.point_list = []
-        return None
 
-    def closest_neighbours(self, point: Point, n_neighbours: int) -> Dict[Point]:
+    def closest_neighbours(self, point: Point, n_neighbours: int) -> list:
         """
         returns a list of neighbours of a specific point
         :param point: takes the point from which we want to find the neighbour
@@ -26,7 +27,17 @@ class Graph:
         # in the list of the point we asked for in the parameter
         point_distance_dict: dict = {}
         for neighbor in point.neighbors:
-            point_distance_dict.update({neighbor: neighbor.distance()})
+            point_distance_dict.update({neighbor: point.distance(neighbor)})
+
+        # Armed with our dictionary, we simply take
+        # the first n-amount lines and return those neighbours
+
+        counter: int = 0
+        returned_list: list = []
+        for distance in point_distance_dict[0:n_neighbours]:
+            returned_list.append(point_distance_dict[distance])
+
+        return returned_list
 
     def make_graph(self):
         """
@@ -36,27 +47,22 @@ class Graph:
         """
 
         # First we import all the stuff we need
-        import matplotlib.pyplot as  plt
-        import numpy as np
-        import matplotlib as mpl
+        import matplotlib.pyplot as plt
 
         # Then we make two lists.
         # The first one containing the X-values of the points
         # The second one containing the Y-values of the points
-        x_list: list = []
-        y_list: list = []
         for point in self.point_list:
             x_value: float = point.x_axis
             y_value: float = point.y_axis
-            x_list.append(x_value)
-            y_list.append(y_value)
 
-        plt.plot(x_list, y_list)
+            plt.plot(x_value, y_value, linewidth=6, marker = "o", color="b")
+
         plt.xlabel("x-value point")
         plt.ylabel("y-value point")
         plt.show()
 
-    def fatboy(self):
+    def nuke(self):
         """
         Wipes all the data in the graph has stored in it
         :returns: None
@@ -67,6 +73,7 @@ class Graph:
             sure: str = input("Are you sure you want to wipe the stored data? \n There is no way to undo this action! (y/n)")
             sure = sure.lower()
         if sure == "y":
+            self.point_list = []
             print("The data has been wiped!")
             return None
 
@@ -79,7 +86,7 @@ class Graph:
         Adds random points to the graph.
         :param n: resembles the amount of points the user wants have added to the graph
         """
-        import numpy as np
+
         import random as rand
         for num in range(0, n):
             random_x_val: float = rand.randrange(0, 1000, 1)/10
@@ -88,11 +95,24 @@ class Graph:
 
         return None
 
+    def __str__(self) -> str:
+        return f"graph with {len(self.point_list)} points"
+
+    def show_neighbours(self) -> None:
+        txt_message: str = ""
+        for point in self.point_list:
+            txt_message = txt_message + str(point)+"\n"
+
+        print(txt_message)
+        return None
 
 
-
-
-
-
-
+"""
+test_graph = Graph()
+print("test")
+test_graph.add_random_crap(1000)
+print(test_graph)
+test_graph.show_neighbours()
+test_graph.make_graph()
+"""
 
