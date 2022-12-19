@@ -3,41 +3,60 @@ The graph file is the place where we create the graph class.
 It will take a shitload of initiations of the Point class and link them all together.
 This is the heart of the project
 """
-from typing import List, Dict
+
 from points_and_KNN import Point
+import random
 
 
 class Graph:
     def __init__(self):
         self.point_list = []
 
-    def closest_neighbours(self, point: Point, n_neighbours: int) -> list:
+    def closest_neighbours(self, n_neighbours: int) -> list:
         """
         returns a list of neighbours of a specific point
-        :param point: takes the point from which we want to find the neighbour
         :param n_neighbours: symbolizes the amount of closest neighbours we want to find
         :returns: list of n amount of closest neighbours
         """
+        point_list: list = []
+        point_dict: dict = {}
+        distance_dict: dict = {}
+        counter: int = len(self.point_list)-1
 
-        # Here we sort the neighbors and put them into a dictionary
-        # With the name being the key and the assigned value, the distance
-        point.sort_neighbours()
+        for point in self.point_list:
+            print(f"[{counter}] point: {point}")
+            point_dict.update({counter: point})
+            counter += 1
 
-        # the neighbor variable is each neighbouring point that is
-        # in the list of the point we asked for in the parameter
-        point_distance_dict: dict = {}
-        for neighbor in point.neighbors:
-            point_distance_dict.update({neighbor: point.distance(neighbor)})
+        # The input will be in the form of an integer, e.g. 55
+        choice: int = int(input("Please choose what point you would like to know the neighbours from"))
 
-        # Armed with our dictionary, we simply take
-        # the first n-amount lines and return those neighbours
+        # Here we figure out from what point we wanna know the neighbours
+        main_point: Point = point_dict[choice]
+        for point in self.point_list:
+            distance = main_point.distance(point)
+            distance_dict.update({distance: point})
 
-        counter: int = 0
-        returned_list: list = []
-        for distance in point_distance_dict[0:n_neighbours]:
-            returned_list.append(point_distance_dict[distance])
+            # Keys are the distances
+            # Values are the points themselves
+            keys = list(distance_dict.keys())
+            values = list(distance_dict.values())
+            distance_dict = {}
 
-        return returned_list
+        for key in keys:
+            distance_dict.update({key: values[keys.index(key)]})
+
+        for
+
+
+
+
+
+
+
+
+
+
 
     def make_graph(self):
         """
@@ -106,13 +125,28 @@ class Graph:
         print(txt_message)
         return None
 
+    def give_point(self) -> Point:
+        """
+        Returns a point. There is barely any practical function to this method aside from testing.
+        That also is the only reason this method exists. Do with it whatever you want
+        :returns: random point stored in the graph object
+        """
 
-"""
+        returned_point = random.sample(self.point_list, 1)
+        print(f"the point you get is: {returned_point}")
+        return returned_point
+
 test_graph = Graph()
 print("test")
-test_graph.add_random_crap(1000)
+test_graph.add_random_crap(10)
 print(test_graph)
 test_graph.show_neighbours()
 test_graph.make_graph()
-"""
+
+point = test_graph.give_point()
+
+# This is where it all goes wrong
+# point.nearest_neighbours(1)
+
+point.show_neighbours()
 

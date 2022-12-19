@@ -27,3 +27,7 @@ Here are a couple of examples:
 -https://github.com/matplotlib/matplotlib/blob/main/examples/animation/dynamic_image.py
 -https://www.geeksforgeeks.org/matplotlib-tutorial/#getting%20started
 -https://matplotlib.org/stable/tutorials/introductory/quick_start.html#sphx-glr-tutorials-introductory-quick-start-py
+
+new ideas:
+-data cleaner
+-data interpreter
