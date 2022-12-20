@@ -68,10 +68,14 @@ for key in dic.keys():
 print(empty_list)
 """
 
-test_dict: dict = {1:2, 3:4, 5:6, 7:8}
+test_dict: dict = {1: 2, 3: 4, 5: 6, 7: 8}
 for keys in test_dict.keys():
     print(keys)
 
 test_values = list(test_dict.values())
 print(test_values)
-# This does not work!
+# This does work!
+
+test_list: list = [4,8,2,1,6]
+print(min(test_list))
+

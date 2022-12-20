@@ -18,45 +18,58 @@ class Graph:
         :param n_neighbours: symbolizes the amount of closest neighbours we want to find
         :returns: list of n amount of closest neighbours
         """
-        point_list: list = []
-        point_dict: dict = {}
-        distance_dict: dict = {}
-        counter: int = len(self.point_list)-1
+
+        # Here we present the user with the choices he has, and allow him to pick one
+        choice_dict: dict = {}
+        point_counter: int = 1
+        for point in self.point_list:
+            print(F"[{point_counter}] {point}")
+            point_counter+=1
+            choice_dict.update({point_counter: point})
+
+        choice: int = 0
+        choice: int = int(input("Please select your point"))
+        while choice not in range(1, point_counter+1):
+            print(f"Your choice has to be between 1 and {point_counter}")
+            print(f"Your value: {choice} did not fall within that range")
+            choice: int = int(input("Please try again"))
+
+        chosen_point: Point = choice_dict[int(choice+1)]
+        # print(chosen_point)
+
+        # Now we know which from which point the user wants the nearest neighbours,
+        # we simply calculate the distances and store it in a dictionary
+
+        distance_point_dict: dict = {}
+        print(chosen_point)
 
         for point in self.point_list:
-            print(f"[{counter}] point: {point}")
-            point_dict.update({counter: point})
-            counter += 1
+            if point == chosen_point:
+                # print(f"skipped point: {point}")
+                continue
+            else:
+                distance: float = chosen_point.distance(point)
+                distance_point_dict.update({distance: point})
 
-        # The input will be in the form of an integer, e.g. 55
-        choice: int = int(input("Please choose what point you would like to know the neighbours from"))
+        # Now we just take the n-amount of shortest distances and give them back
+        distance_list = list(distance_point_dict.keys())
+        distance_list.sort()
 
-        # Here we figure out from what point we wanna know the neighbours
-        main_point: Point = point_dict[choice]
-        for point in self.point_list:
-            distance = main_point.distance(point)
-            distance_dict.update({distance: point})
+        print("test test")
+        print("The closest neighbours are:")
+        distances_counter: int = 0
+        for shortest_distances in distance_list:
+            if distances_counter == n_neighbours:
+                break
+            else:
 
-            # Keys are the distances
-            # Values are the points themselves
-            keys = list(distance_dict.keys())
-            values = list(distance_dict.values())
-            distance_dict = {}
+                print(f"point: {distance_point_dict[shortest_distances]} at {shortest_distances} away")
 
-        for key in keys:
-            distance_dict.update({key: values[keys.index(key)]})
+                distances_counter += 1
 
-        for
+        # All there is left is choosing what to return
 
-
-
-
-
-
-
-
-
-
+        return None
 
     def make_graph(self):
         """
@@ -146,7 +159,7 @@ test_graph.make_graph()
 point = test_graph.give_point()
 
 # This is where it all goes wrong
-# point.nearest_neighbours(1)
+test_graph.closest_neighbours(2)
 
-point.show_neighbours()
+
 
