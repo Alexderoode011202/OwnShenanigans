@@ -67,7 +67,8 @@ for key in dic.keys():
 
 print(empty_list)
 """
-
+# Converting dict.keys() to list
+"""
 test_dict: dict = {1: 2, 3: 4, 5: 6, 7: 8}
 for keys in test_dict.keys():
     print(keys)
@@ -78,4 +79,35 @@ print(test_values)
 
 test_list: list = [4,8,2,1,6]
 print(min(test_list))
+"""
+# Tuple test
+"""
+print("another test")
+from points_and_KNN import Point
+import random
+counter: int = 0
+point_list: list = []
+while counter != 10:
+    point_list.append(Point(random.randrange(1, 11, 1), random.randrange(1,11,1)))
+    counter +=1
+for point in point_list:
+    x, y = point.as_tuple()
+    print(f"{x} and {y}")
+"""
 
+# Having multiple plots
+
+# Try- Except statements
+
+
+def divided10() -> float:
+    try: first_num: int = int(input("choose a number between 1 and 10"))
+    except ValueError:
+        print("I dunno what to do")
+        return None
+
+    else:
+        return first_num/10
+
+
+divided10()

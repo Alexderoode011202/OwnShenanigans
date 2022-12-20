@@ -105,7 +105,8 @@ class Graph:
         sure: str = ""
 
         while sure != "y" or "n":
-            sure: str = input("Are you sure you want to wipe the stored data? \n There is no way to undo this action! (y/n)")
+            sure: str = input("Are you sure you want to wipe the stored data? \n"
+                              "There is no way to undo this action! (y/n)")
             sure = sure.lower()
         if sure == "y":
             self.point_list = []
@@ -161,8 +162,8 @@ test_graph.show_neighbours()
 
 
 point = test_graph.give_point()
+test_graph.make_graph()
 
-# This is where it all goes wrong
 test_graph.closest_neighbours(2)
 
 test_graph.make_graph()
