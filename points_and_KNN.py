@@ -20,8 +20,8 @@ class Point:
         :param other_point: takes the other point we got to find the distance for
         :returns: float value containing the distance between the two points
         """
-        x_distance: float = self.x_axis**2 + other_point.x_axis**2
-        y_distance: float = self.y_axis**2 + other_point.y_axis**2
+        x_distance: float = (self.x_axis- other_point.x_axis)**2
+        y_distance: float = (self.y_axis - other_point.y_axis)**2
         distance = math.sqrt(x_distance + y_distance)
         return distance
 

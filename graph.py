@@ -69,6 +69,10 @@ class Graph:
 
         # All there is left is choosing what to return
 
+        # As Graph:
+
+        # As list of tuples: [{point, distance}, {point, distance}]
+
         return None
 
     def make_graph(self):
@@ -149,17 +153,18 @@ class Graph:
         print(f"the point you get is: {returned_point}")
         return returned_point
 
+
 test_graph = Graph()
 print("test")
 test_graph.add_random_crap(10)
 print(test_graph)
 test_graph.show_neighbours()
-test_graph.make_graph()
+
 
 point = test_graph.give_point()
 
 # This is where it all goes wrong
 test_graph.closest_neighbours(2)
 
-
+test_graph.make_graph()
 
