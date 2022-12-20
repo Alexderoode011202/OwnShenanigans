@@ -24,10 +24,9 @@ class Graph:
         point_counter: int = 1
         for point in self.point_list:
             print(F"[{point_counter}] {point}")
-            point_counter+=1
+            point_counter += 1
             choice_dict.update({point_counter: point})
 
-        choice: int = 0
         choice: int = int(input("Please select your point"))
         while choice not in range(1, point_counter+1):
             print(f"Your choice has to be between 1 and {point_counter}")
@@ -51,7 +50,7 @@ class Graph:
                 distance: float = chosen_point.distance(point)
                 distance_point_dict.update({distance: point})
 
-        # Now we just take the n-amount of shortest distances and give them back
+        # Now we just take the n-amount of the shortest distances and give them back
         distance_list = list(distance_point_dict.keys())
         distance_list.sort()
 
@@ -92,7 +91,7 @@ class Graph:
             x_value: float = point.x_axis
             y_value: float = point.y_axis
 
-            plt.plot(x_value, y_value, linewidth=6, marker = "o", color="b")
+            plt.plot(x_value, y_value, linewidth=6, marker="o", color="b")
 
         plt.xlabel("x-value point")
         plt.ylabel("y-value point")
