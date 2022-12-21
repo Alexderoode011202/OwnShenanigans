@@ -99,7 +99,7 @@ for point in point_list:
 
 # Try- Except statements
 
-
+"""
 def divided10() -> float:
     try: first_num: int = int(input("choose a number between 1 and 10"))
     except ValueError:
@@ -111,3 +111,10 @@ def divided10() -> float:
 
 
 divided10()
+"""
+
+test_dict: dict = {"A": "a", "B": "B"}
+
+new_dict = dict(A="yea", B="Nope")
+print(new_dict.items())
+print(type(new_dict.items()))
