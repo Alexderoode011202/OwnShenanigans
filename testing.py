@@ -112,9 +112,71 @@ def divided10() -> float:
 
 divided10()
 """
-
+"""
 test_dict: dict = {"A": "a", "B": "B"}
 
 new_dict = dict(A="yea", B="Nope")
 print(new_dict.items())
 print(type(new_dict.items()))
+"""
+
+# Set .pop(value) method testing
+"""
+test_set: set = {77,True, 3.0, 2, "A",3, 4, 7, "D", "d"}
+print(test_set)
+print(test_set.pop())
+print(test_set)
+"""
+
+# string slicing
+"""
+test_string: str = "I hate this world"
+substring: str = test_string[-5:: 2]
+print(substring)
+
+reverse_string: str = test_string[::-1]
+print(reverse_string)
+"""
+
+# all sorts of string methods
+
+"""
+test_string: str = "       Let's experiment with stripping!"
+test_string = test_string.strip()
+print(test_string)
+print(test_string.find("pootis"))
+print(test_string.count("eee"))
+
+test_string = test_string.replace("stripping!", "splitting!")
+test_string = test_string.replace("experiment with", "try out")
+word_list: list = test_string.split(" out ")
+print(test_string)
+print(word_list)
+
+new_string: str = " ".join(word_list)
+
+
+print(new_string)
+
+spam_list: list= ["A"]*30
+spam_str: str = "".join(spam_list)
+print(spam_str)
+"""
+
+# String indexing!
+
+# .format() method
+thing: str = "sleep"
+other_thing: str = "food"
+time: float = 8.151
+print("I need {} and {} and have to wake up at {:.2f}".format(thing, other_thing, time))
+
+# %s
+print("I tried formatting %s with the oldest method I can think of \nand I hate it with a burning passion" %thing)
+# It fucking sucks
+
+# f""
+
+# Definetely nicer than %s
+
+print(f"\nI'm almost a{thing} and have to wake up at{time.__round__(2)}")
